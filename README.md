@@ -19,7 +19,11 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] Add command line arguments support
 - [x] Add --help
 - [ ] Fix the help text so it says imgsnapper instead of `node.exe ./cli.js`
+- [ ] Make it possible to pick the image from other selection pattern than element id
 - [ ] Add cron functionality
-- [ ] Add timestamped filenames for the image(s)
-- [ ] Save files in a directory (`/images`)
+- [x] Add timestamped filenames for the image(s)
+- [ ] Autodetect image type
+- [x] Create `/images` directory automatically
+- [x] Save files in a directory (`/images`)
+- [x] Make it possible to specify a different image directory
 - [ ] Create a command for making all the images into a movie
