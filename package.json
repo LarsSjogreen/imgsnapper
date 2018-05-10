@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Lars Sjögreen",
+  "bin": {
+    "imgsnapper": "./cli.js"
+  },
+  "author": "Lars Sjögreen https://labs.sjögreen.se",
   "license": "GPL-3.0-only",
   "dependencies": {
     "chromedriver": "^2.38.3",
