@@ -29,4 +29,7 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [ ] Create a command for making all the images into a movie
 
 ## Hints and tips
-To find the XPath to an image in a web page, try the [ChroPath plugin](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo) for Chrome
+To find the XPath to an image in a web page, try the [ChroPath plugin](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo) for Chrome.
+
+## Example
+`imgsnapper -s https://www.svt.se/vader/ -x "//a[@href='/vader/amne/sverigevader180510']//div[@class='nyh_teaser__inner']//div[@class='nyh_teaser__figure']//div[@class='pic pic--cinema']//img[contains(@class,'pic__img pic__img--optimized pic__img--cinema')]"`
