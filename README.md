@@ -19,7 +19,7 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] Add command line arguments support
 - [x] Add --help
 - [ ] Fix the help text so it says imgsnapper instead of `node.exe ./cli.js`
-- [ ] Make it possible to pick the image from other selection pattern than element id
+- [x] Make it possible to pick the image XPath rather than element id
 - [ ] Add cron functionality
 - [x] Add timestamped filenames for the image(s)
 - [ ] Autodetect image type
@@ -27,3 +27,6 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] Save files in a directory (`/images`)
 - [x] Make it possible to specify a different image directory
 - [ ] Create a command for making all the images into a movie
+
+## Hints and tips
+To find the XPath to an image in a web page, try the [ChroPath plugin](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo) for Chrome

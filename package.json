@@ -1,6 +1,6 @@
 {
   "name": "imgsnapper",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "A node.js program that will snapshot an image from a web page and save it to a file",
   "main": "cli.js",
   "scripts": {

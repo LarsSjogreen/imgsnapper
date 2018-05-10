@@ -8,11 +8,14 @@ opt = require('node-getopt').create([
 	['s','source=ARG','The source web page from where you want to get the image'],
 	['i','id=ARG', 'The id of the <img> element in the web page'],
 	['d','dir=ARG', 'The directory where you want images stored. Start with ./ if you want it in a subdir of where you are.'],
+	['x','xpath=ARG', 'XPath to the img element to download'],
 	['h','help','display this help']
 ]).bindHelp().parseSystem();
 
-var source_url = opt.options.s ? opt.options.s : 'http://www.lightningmaps.org';
-var id = opt.options.i ? opt.options.i : 'strikes_mini_img';
+let source_url = opt.options.s ? opt.options.s : 'http://www.lightningmaps.org';
+let id = opt.options.i ? opt.options.i : 'strikes_mini_img';
+
+let byThing = opt.options.x ? By.xpath(opt.options.x) : By.id(id);
 
 var imagecat = opt.options.d ? opt.options.d : './images';
 checkdir(imagecat);
@@ -28,8 +31,8 @@ var download = function(uri, filename, callback){
 
 	try {
 		await driver.get(source_url);
-		await driver.wait(until.elementIsVisible(driver.findElement(By.id(id))), 2000, 'no luck');
-		await driver.findElement(By.id(id)).getAttribute('src').then(
+		await driver.wait(until.elementIsVisible(driver.findElement(byThing)), 2000, 'no luck');
+		await driver.findElement(byThing).getAttribute('src').then(
 		    function(image, err) {
 					var filename = imagecat + "/image-" + Date.now().toString() + ".png";
 				download(image, filename, function() { console.log('Done'); });
