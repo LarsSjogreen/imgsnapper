@@ -16,8 +16,9 @@ Just type `imgsnapper` in your shell.
 Go to the imgsnapper directory and type: `npm unlink`
 
 ## Todo
-- [ ] Add command line arguments
-- [ ] Add --help
+- [x] Add command line arguments support
+- [x] Add --help
+- [ ] Fix the help text so it says imgsnapper instead of `node.exe ./cli.js`
 - [ ] Add cron functionality
 - [ ] Add timestamped filenames for the image(s)
 - [ ] Save files in a directory (`/images`)

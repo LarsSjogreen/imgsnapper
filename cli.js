@@ -3,15 +3,21 @@
 var request = require('request');
 var fs = require('fs');
 const { Builder, By, until } = require('selenium-webdriver');
-const [,, ...args] = process.argv;
-var source_url = 'http://www.lightningmaps.org';
-var id = 'strikes_mini_img';
+
+opt = require('node-getopt').create([
+	['s','source=ARG','The source web page from where you want to get the image'],
+	['i','id=ARG', 'The id of the <img> element in the web page'],
+	['h','help','display this help']
+]).bindHelp().parseSystem();
+
+var source_url = opt.options.s ? opt.options.s : 'http://www.lightningmaps.org';
+var id = opt.options.i ? opt.options.i : 'strikes_mini_img';
 
 var download = function(uri, filename, callback){
 	request.head(uri, function(err, res, body){
 	  request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
 	});
-  };
+};
 
 (async function example() { 
 	let driver = await new Builder().forBrowser('chrome').build();
