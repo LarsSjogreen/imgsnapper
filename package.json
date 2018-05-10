@@ -1,0 +1,15 @@
+{
+  "name": "imgsnapper",
+  "version": "0.8.0",
+  "description": "A node.js program that will snapshot an image from a web page and save it to a file",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lars Sjögreen",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "chromedriver": "^2.38.3",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
+}
