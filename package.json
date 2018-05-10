@@ -10,7 +10,7 @@
     "imgsnapper": "./cli.js"
   },
   "author": "Lars Sjögreen https://labs.sjögreen.se",
-  "license": "GPL-3.0-only",
+  "license": "GPL-3.0",
   "dependencies": {
     "chromedriver": "^2.38.3",
     "node-getopt": "^0.3.2",
