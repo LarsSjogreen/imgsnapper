@@ -4,11 +4,13 @@ const request = require('request');
 const fs = require('fs');
 const { Builder, By, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+const firefox = require('selenium-webdriver/firefox');
 
 const opt = require('node-getopt').create([
 	['u', 'url=ARG', 'The URL to the web page from where you want to get the image or screenshot'],
 	['i', 'id=ARG', 'The id of the <img> element in the web page'],
 	['x', 'xpath=ARG', 'XPath to the img element to download'],
+	['b', 'browser=ARG', 'Selecting which browser you want to use. Available: firefox, chrome'],
 
 	['s', 'screenshot', 'Snap the whole web page instead of a specific img element'],
 	['d', 'dir=ARG', 'The directory where you want images stored. Start with ./ if you want it in a subdir of where you are.'],
@@ -22,13 +24,19 @@ let id = opt.options.i ? opt.options.i : 'strikes_mini_img';
 let byThing = opt.options.x ? By.xpath(opt.options.x) : By.id(id);
 let imagecat = opt.options.d ? opt.options.d : './images';
 let screenshot = opt.options.s ? true : false;
+let browser = (opt.options.b === 'chrome') ? chrome : firefox;
+let browserStr = (opt.options.b === 'firefox') ? 'firefox' : 'chrome';
 
 checkdir(imagecat);
 
 (async function() {
-	let options = new chrome.Options();
-	if (opt.options.q) { options.addArguments(["--headless"]); } else { options.addArguments(["--start-maximized"]); }
-	let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+	let chromeOptions = new chrome.Options();
+	if (opt.options.q) { chromeOptions.addArguments(["--headless"]); } else { chromeOptions.addArguments(["--start-maximized"]); }
+
+	let firefoxOptions = new firefox.Options();
+	// TODO
+
+	let driver = await new Builder().forBrowser(browserStr).setChromeOptions(chromeOptions).setFirefoxOptions(firefoxOptions).build();
 
 	try {
 		await driver.get(source_url);
