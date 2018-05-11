@@ -1,11 +1,13 @@
 # imgsnapper
-A node.js program that will snapshot an image from a web page and save it to a file
+A node.js program that will take a screenshot or snap an image from a web page and save it to a file.
 
 ## Installation
-
+Clone this repository. (Use the green clone button to the top right above.)
 Go to the imgsnapper directory and type:
-`npm install`
-`npm link`
+```
+npm install
+npm link
+```
 
 ## Usage
 
@@ -35,3 +37,9 @@ Go to the imgsnapper directory and type: `npm unlink`
 
 ## Hints and tips
 To find the XPath to an image in a web page, try the [ChroPath plugin](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo) for Chrome.
+
+## Examples
+Take a screenshot of a web page, give it a timestamped filename and save it in the `/images` folder.
+```
+imgsnapper -s -u https://www.sunet.se
+```
