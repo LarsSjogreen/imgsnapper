@@ -27,10 +27,11 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] Save files in a directory (`/images`)
 - [x] Make it possible to specify a different image directory
 - [x] Add option to run headless
+- [x] If not headless, run browser maximized for largest screenshot.
 - [ ] Create a command for making all the images into a movie
+
+## Bugs to be fixed
+- [ ] The chromedriver process doesn't terminate after program exits.
 
 ## Hints and tips
 To find the XPath to an image in a web page, try the [ChroPath plugin](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo) for Chrome.
-
-## Example
-`imgsnapper -s https://www.svt.se/vader/ -x "//a[@href='/vader/amne/sverigevader180510']//div[@class='nyh_teaser__inner']//div[@class='nyh_teaser__figure']//div[@class='pic pic--cinema']//img[contains(@class,'pic__img pic__img--optimized pic__img--cinema')]"`
