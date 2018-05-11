@@ -11,7 +11,7 @@ npm link
 
 ## Usage
 
-Just type `imgsnapper` in your shell.
+Just type `imgsnapper` in your shell. Or `imgsnapper --help` for a list of all command line options.
 
 ## Removal
 
