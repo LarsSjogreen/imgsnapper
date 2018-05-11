@@ -1,6 +1,6 @@
 # imgsnapper
 A node.js program that will take a screenshot or snap an image from a web page and save it to a file.
-<img src='/logo.png' alt='imgsnapper logo' width='180'/>
+<p style="text-align:center;"><img src='/logo.png' alt='imgsnapper logo' width='180'/></p>
 
 ## Installation
 Use [chocolatey](https://chocolatey.org/) to install chromedriver and geckodriver.
