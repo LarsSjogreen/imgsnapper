@@ -59,10 +59,17 @@ checkdir(imagecat);
 	} catch (error) {
 		console.error(error);
 	} finally {
-		await driver.close();
+		if (browser === 'chrome') {
+			await driver.close();
+		}
 		await driver.quit();
 		if (process.platform === "win32") {
-			console.log("Windows chromedriver bug. Remember to run 'taskkill /im chromedriver.exe /F' in your shell regularly. Sorry for the inconvenience. I'm working on a solution.");
+			if (browser === 'chrome') {
+				console.log("Windows chromedriver bug. Remember to run 'taskkill /im chromedriver.exe /F' in your shell regularly. Sorry for the inconvenience. I'm working on a solution.");
+			} else {
+				console.log("Windows geckodriver bug. Remember to run 'taskkill /im geckodriver.exe /F' in your shell regularly. Sorry for the inconvenience. I'm working on a solution.");
+
+			}
 		}
 	}
 })();
