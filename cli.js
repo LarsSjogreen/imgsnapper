@@ -64,12 +64,8 @@ checkdir(imagecat);
 		}
 		await driver.quit();
 		if (process.platform === "win32") {
-			if (browser === 'chrome') {
-				console.log("Windows chromedriver bug. Remember to run 'taskkill /im chromedriver.exe /F' in your shell regularly. Sorry for the inconvenience. I'm working on a solution.");
-			} else {
-				console.log("Windows geckodriver bug. Remember to run 'taskkill /im geckodriver.exe /F' in your shell regularly. Sorry for the inconvenience. I'm working on a solution.");
-
-			}
+			const { spawn } = require('child_process');
+			const kill = spawn('powershell', ['/c', './win/killproc.bat']);
 		}
 	}
 })();
