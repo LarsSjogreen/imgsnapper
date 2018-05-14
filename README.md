@@ -40,8 +40,8 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [ ] Create a command for making all the images into a movie
 
 ## Bugs to be fixed
-- [ ] The chromedriver process doesn't terminate after program exits.
-- [ ] The geckodriver variant crashes on program exit.
+- [x] The chromedriver process doesn't terminate after program exits.
+- [x] The geckodriver variant crashes on program exit.
 
 ## Hints and tips
 To find the XPath to an image in a web page, try the [ChroPath plugin](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo) for Chrome.
