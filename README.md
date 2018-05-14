@@ -27,7 +27,7 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] Add command line arguments support
 - [x] Experimental firefox/geckodriver support. (Still throws an error.)
 - [x] Add --help
-- [ ] Fix the help text so it says imgsnapper instead of `node.exe ./cli.js`
+- [x] Fix the help text so it says imgsnapper instead of `node.exe ./cli.js`
 - [x] Make it possible to pick the image XPath rather than element id
 - [ ] Add cron functionality
 - [x] Add timestamped filenames for the image(s)

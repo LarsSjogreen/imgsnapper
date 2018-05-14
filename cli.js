@@ -13,11 +13,19 @@ const opt = require('node-getopt').create([
 	['b', 'browser=ARG', 'Selecting which browser you want to use. Available: firefox, chrome'],
 
 	['s', 'screenshot', 'Snap the whole web page instead of a specific img element'],
-	['d', 'dir=ARG', 'The directory where you want images stored. Start with ./ if you want it in a subdir of where you are.'],
+	['d', 'dir=ARG', 'The directory where you want the images. (Start with ./ if you want it in a subdir of current dir.)'],
 	
 	['q', 'headless', 'Run imgsnapper (and webdriver) headless'],
 	['h', 'help', 'display this help']
-]).bindHelp().parseSystem();
+]).setHelp(
+	"Usage: imgsnapper\n" +
+	"A script for creating screenshots or snapshots of individual images from a webpage.\n" +
+	"\n" +
+	"[[OPTIONS]]\n" +
+	"\n" +
+	"Installation: npm install\nnpm link\n" +
+	"Respository:  https://github.com/LarsSjogreen/imgsnapper"
+  ).bindHelp().parseSystem();
 
 let source_url = opt.options.u ? opt.options.u : 'http://www.lightningmaps.org';
 let id = opt.options.i ? opt.options.i : 'strikes_mini_img';
