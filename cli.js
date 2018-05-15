@@ -12,6 +12,8 @@ const opt = require('node-getopt').create([
 	['x', 'xpath=ARG', 'XPath to the img element to download'],
 	['b', 'browser=ARG', 'Selecting which browser you want to use. Available: firefox, chrome'],
 
+	['r', 'repeat=ARG', 'Make imgsnapper repeat and take a snapshot every ARG minutes.'],
+
 	['s', 'screenshot', 'Snap the whole web page instead of a specific img element'],
 	['d', 'dir=ARG', 'The directory where you want the images. (Start with ./ if you want it in a subdir of current dir.)'],
 	
@@ -34,10 +36,20 @@ let imagecat = opt.options.d ? opt.options.d : './images';
 let screenshot = opt.options.s ? true : false;
 let browser = (opt.options.b === 'chrome') ? chrome : firefox;
 let browserStr = (opt.options.b === 'firefox') ? 'firefox' : 'chrome';
+let repeatMin = opt.options.r ? opt.options.r : 0;
 
 checkdir(imagecat);
 
-(async function() {
+if (repeatMin === 0) {
+	snap();
+} else {
+	var CronJob = require('cron').CronJob;
+	new CronJob(repeatMin + ' * * * * *', function() {
+		snap();
+	}, null, true, 'America/Los_Angeles');
+}
+
+async function snap() {
 	let chromeOptions = new chrome.Options();
 	if (opt.options.q) { chromeOptions.addArguments(["--headless"]); } else { chromeOptions.addArguments(["--start-maximized"]); }
 
@@ -76,7 +88,7 @@ checkdir(imagecat);
 			const kill = spawn('powershell', ['/c', './win/killproc.bat']);
 		}
 	}
-})();
+};
 
 function download(uri, filename, callback) {
 	request.head(uri, function(err, res, body) {

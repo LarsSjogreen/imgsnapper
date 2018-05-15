@@ -29,7 +29,6 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] Add --help
 - [x] Fix the help text so it says imgsnapper instead of `node.exe ./cli.js`
 - [x] Make it possible to pick the image XPath rather than element id
-- [ ] Add cron functionality
 - [x] Add timestamped filenames for the image(s)
 - [x] Autodetect image type
 - [x] Create `/images` directory automatically
@@ -38,6 +37,7 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] Add option to run headless
 - [x] If not headless, run browser maximized for largest screenshot.
 - [ ] Create a command for making all the images into a movie
+- [x] Add cron functionality
 
 ## Bugs to be fixed
 - [x] The chromedriver process doesn't terminate after program exits.
