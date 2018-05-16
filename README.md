@@ -38,6 +38,7 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [x] If not headless, run browser maximized for largest screenshot.
 - [ ] Create a command for making all the images into a movie
 - [x] Add cron functionality
+- [x] Added [lynt](https://github.com/saadq/lynt) for linting the code.
 
 ## Bugs to be fixed
 - [x] The chromedriver process doesn't terminate after program exits.

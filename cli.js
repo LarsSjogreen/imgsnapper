@@ -29,14 +29,14 @@ const opt = require('node-getopt').create([
 	"Respository:  https://github.com/LarsSjogreen/imgsnapper"
   ).bindHelp().parseSystem();
 
-let source_url = opt.options.u ? opt.options.u : 'http://www.lightningmaps.org';
-let id = opt.options.i ? opt.options.i : 'strikes_mini_img';
-let byThing = opt.options.x ? By.xpath(opt.options.x) : By.id(id);
-let imagecat = opt.options.d ? opt.options.d : './images';
-let screenshot = opt.options.s ? true : false;
-let browser = (opt.options.b === 'chrome') ? chrome : firefox;
-let browserStr = (opt.options.b === 'firefox') ? 'firefox' : 'chrome';
-let repeatMin = opt.options.r ? opt.options.r : 0;
+const source_url = opt.options.u ? opt.options.u : 'http://www.lightningmaps.org';
+const id = opt.options.i ? opt.options.i : 'strikes_mini_img';
+const byThing = opt.options.x ? By.xpath(opt.options.x) : By.id(id);
+const imagecat = opt.options.d ? opt.options.d : './images';
+const screenshot = opt.options.s ? true : false;
+const browser = (opt.options.b === 'chrome') ? chrome : firefox;
+const browserStr = (opt.options.b === 'firefox') ? 'firefox' : 'chrome';
+const repeatMin = opt.options.r ? opt.options.r : 0;
 
 checkdir(imagecat);
 
@@ -50,17 +50,17 @@ if (repeatMin === 0) {
 }
 
 async function snap() {
-	let chromeOptions = new chrome.Options();
+	const chromeOptions = new chrome.Options();
 	if (opt.options.q) { chromeOptions.addArguments(["--headless"]); } else { chromeOptions.addArguments(["--start-maximized"]); }
 
-	let firefoxOptions = new firefox.Options();
+	const firefoxOptions = new firefox.Options();
 	// TODO
 
-	let driver = await new Builder().forBrowser(browserStr).setChromeOptions(chromeOptions).setFirefoxOptions(firefoxOptions).build();
+	const driver = await new Builder().forBrowser(browserStr).setChromeOptions(chromeOptions).setFirefoxOptions(firefoxOptions).build();
 
 	try {
 		await driver.get(source_url);
-		let filename = imagecat + "/image-" + Date.now().toString();
+		const filename = imagecat + "/image-" + Date.now().toString();
 
 		if (screenshot) {
 			driver.takeScreenshot().then(function(data){
@@ -85,14 +85,14 @@ async function snap() {
 		await driver.quit();
 		if (process.platform === "win32") {
 			const { spawn } = require('child_process');
-			const kill = spawn('powershell', ['/c', './win/killproc.bat']);
+			spawn('powershell', ['/c', './win/killproc.bat']);
 		}
 	}
 };
 
 function download(uri, filename, callback) {
 	request.head(uri, function(err, res, body) {
-		let fileExt = "." + res.headers['content-type'].split("/").pop();
+		const fileExt = "." + res.headers['content-type'].split("/").pop();
 		request(uri).pipe(fs.createWriteStream(filename + fileExt)).on('close', callback);
 	});
 }

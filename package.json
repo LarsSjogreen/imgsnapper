@@ -4,7 +4,8 @@
   "description": "A node.js program that will snapshot an image from a web page and save it to a file",
   "main": "cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "lynt"
   },
   "bin": {
     "imgsnapper": "./cli.js"
@@ -18,5 +19,8 @@
     "node-getopt": "^0.3.2",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "version": "^0.1.2"
+  },
+  "devDependencies": {
+    "lynt": "^0.1.0"
   }
 }
