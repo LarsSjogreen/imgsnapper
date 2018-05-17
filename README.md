@@ -52,3 +52,12 @@ Take a screenshot of a web page, give it a timestamped filename and save it in t
 ```
 imgsnapper -s -u https://www.sunet.se
 ```
+
+Take a screenshot every 15 minutes
+```
+imgsnapper -s -u https://www.bbc.com/weather -r 15
+```
+
+Take a screenshot every minute and hide the browser window while doing it
+```
+imgsnapper -u https://trends.google.com/trends/explore?date=now%201-H&q=trump -s -r 1 -q
