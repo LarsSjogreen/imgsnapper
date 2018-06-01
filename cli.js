@@ -54,9 +54,12 @@ async function snap() {
 	if (opt.options.q) { chromeOptions.addArguments(["--headless"]); } else { chromeOptions.addArguments(["--start-maximized"]); }
 
 	const firefoxOptions = new firefox.Options();
-	// TODO
+	if (opt.options.q) { firefoxOptions.addArguments('-headless');}
 
 	const driver = await new Builder().forBrowser(browserStr).setChromeOptions(chromeOptions).setFirefoxOptions(firefoxOptions).build();
+	if ((browserStr === 'firefox') && (! opt.options.q)) {
+		driver.manage().window().maximize();
+	}
 
 	try {
 		await driver.get(source_url);
