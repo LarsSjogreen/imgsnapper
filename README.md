@@ -11,17 +11,47 @@ cinst selenium-gecko-driver
 Clone this repository. (Use the green clone button to the top right above.)
 Go to the imgsnapper directory and type:
 ```
-npm install
-npm link
+yarn
+yarn link
 ```
 
 ## Usage
 
 Just type `imgsnapper` in your shell. Or `imgsnapper --help` for a list of all command line options.
 
+## Command line options
+
+| Option | Short option | Description |
+| ----- | ----------- | --- |
+| url=ARG     |  u=ARG | The URL to the web page from where you want to get the image or screenshot |
+| id=ARG      |  i=ARG | The id of the <img> element in the web page |
+| xpath=ARG   |  x=ARG | XPath to the img element to download |
+| browser=ARG |  b=ARG | Selecting which browser you want to use. Available: firefox, chrome |
+| repeat=ARG  |  r=ARG | Make imgsnapper repeat and take a snapshot every ARG minutes. |
+| screenshot  |  s     | Snap the whole web page instead of a specific img element |
+| dir=ARG     |  d=ARG | The directory where you want the images. (Start with ./ if you want it in a subdir of current dir.)' |
+| headless    |  q     | Run imgsnapper (and webdriver) headless |
+| help        |  h     | display this help |
+
+## Examples
+Take a screenshot of a web page, give it a timestamped filename and save it in the `/images` folder.
+```
+imgsnapper -s -u https://www.sunet.se
+```
+
+Take a screenshot every 15 minutes
+```
+imgsnapper -s -u https://www.bbc.com/weather -r 15
+```
+
+Take a screenshot every minute and hide the browser window while doing it
+```
+imgsnapper -u https://trends.google.com/trends/explore?date=now%201-H&q=trump -s -r 1 -q
+```
+
 ## Removal
 
-Go to the imgsnapper directory and type: `npm unlink`
+Go to the imgsnapper directory and type: `yarn unlink`
 
 ## Todo
 - [x] Add command line arguments support
@@ -39,6 +69,8 @@ Go to the imgsnapper directory and type: `npm unlink`
 - [ ] Create a command for making all the images into a movie
 - [x] Add cron functionality
 - [x] Added [lynt](https://github.com/saadq/lynt) for linting the code.
+- [x] Use Yarn instead of NPM
+- [x] Update the README
 
 ## Bugs to be fixed
 - [x] The chromedriver process doesn't terminate after program exits.
@@ -46,18 +78,3 @@ Go to the imgsnapper directory and type: `npm unlink`
 
 ## Hints and tips
 To find the XPath to an image in a web page, try the [ChroPath plugin](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo) for Chrome.
-
-## Examples
-Take a screenshot of a web page, give it a timestamped filename and save it in the `/images` folder.
-```
-imgsnapper -s -u https://www.sunet.se
-```
-
-Take a screenshot every 15 minutes
-```
-imgsnapper -s -u https://www.bbc.com/weather -r 15
-```
-
-Take a screenshot every minute and hide the browser window while doing it
-```
-imgsnapper -u https://trends.google.com/trends/explore?date=now%201-H&q=trump -s -r 1 -q
