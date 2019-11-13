@@ -2,6 +2,10 @@
 A node.js program that will take a screenshot or snap an image from a web page and save it to a file.
 <p style="text-align:center;"><img src='/logo.png' alt='imgsnapper logo' width='180'/></p>
 
+### Status
+![alt text](https://github.com/LarsSjogreen/imgsnapper/workflows/Node%20CI/badge.svg "Build status")
+
+
 ## Installation
 Use [chocolatey](https://chocolatey.org/) to install chromedriver and geckodriver.
 ```
