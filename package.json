@@ -22,7 +22,7 @@
     "selenium-webdriver": "^4.0.0-alpha.1"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
+    "jest": "^26.6.3",
     "lynt": "^0.5.5"
   }
 }
