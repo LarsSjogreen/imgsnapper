@@ -43,7 +43,7 @@ checkdir(imagecat);
 if (repeatMin === 0) {
 	snap();
 } else {
-	var CronJob = require('cron').CronJob;
+	const CronJob = require('cron').CronJob;
 	new CronJob(repeatMin + ' * * * * *', function() {
 		snap();
 	}, null, true, 'America/Los_Angeles');
@@ -67,7 +67,7 @@ async function snap() {
 
 		if (screenshot) {
 			driver.takeScreenshot().then(function(data){
-				var base64Data = data.replace(/^data:image\/png;base64,/,"")
+				const base64Data = data.replace(/^data:image\/png;base64,/,"")
 				fs.writeFile(filename + ".png", base64Data, 'base64', function(err) {
 					 if(err) console.log(err);
 				});
