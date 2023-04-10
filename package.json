@@ -20,7 +20,7 @@
     "lodash": "^4.17.21",
     "node-getopt": "^0.3.2",
     "request": "^2.88.0",
-    "selenium-webdriver": "^4.0.0-alpha.1",
+    "selenium-webdriver": "^4.8.2",
     "tar": "^6.1.11",
     "trim-newlines": "^3.0.1"
   },
